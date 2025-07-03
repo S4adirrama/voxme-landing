@@ -11,8 +11,8 @@ const musicStyles = [
 const featuredExamples = [
   {
     title: "Sunset Exit",
-    style: "ELECTRONIC",
-    prompt: "Melancholic synthwave at sunset",
+    style: "Pop",
+    prompt: "Upbeat pop song about summer vacation",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/f7be7ee7-785d-49fb-bc75-75d0134ec189.jpg",
     color: "from-pink-500 to-purple-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751521887/Sunset_Exit_spuha0.mp3",
@@ -20,7 +20,7 @@ const featuredExamples = [
   {
     title: "Rainy Study",
     style: "LO-FI",
-    prompt: "Lo-fi chill beats for focus",
+    prompt: "Relaxing lo-fi hip hop for studying",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/98ef63b3-88f7-4f4f-a3b9-2811ef28a6bb.jpg",
     color: "from-blue-500 to-indigo-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751522687/Rainy_Study_vkvxk2.mp3",
@@ -28,7 +28,7 @@ const featuredExamples = [
   {
     title: "Breaking",
     style: "HIP-HOP",
-    prompt: "Aggressive hip-hop with tight beats",
+    prompt: "Powerful rock anthem with guitar solos",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/7b31ce3e-a1b7-4aed-bdbb-70408244eba2.jpg",
     color: "from-yellow-500 to-orange-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751523849/Breaking_ztvzx9.mp3",
@@ -36,7 +36,7 @@ const featuredExamples = [
   {
     title: "Silent Echo",
     style: "JAZZ",
-    prompt: "Smooth ambient jazz with echo",
+    prompt: "Smooth jazz with saxophone and piano",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/5b841dab-0cea-4dd4-8658-06339468f87c.jpg",
     color: "from-teal-500 to-cyan-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751524527/Silent_Echo_z2mkvz.mp3",
@@ -44,7 +44,7 @@ const featuredExamples = [
   {
     title: "Lost Youth",
     style: "POP",
-    prompt: "Emotional synth pop for late nights",
+    prompt: "Hard-hitting hip-hop beat with heavy bass",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/1f3f9a2c-6ea8-4be1-bb51-a1d4bfcaf424.jpg",
     color: "from-pink-500 to-rose-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751524696/Lost_Youth_j8knfc.mp3",
@@ -52,7 +52,7 @@ const featuredExamples = [
   {
     title: "Resilience",
     style: "CLASSICAL",
-    prompt: "Uplifting orchestral soundtrack",
+    prompt: "Cinematic orchestral piece with crescendo",
     image: "https://storage.googleapis.com/corpusant-app-public/riffs/328c462e-e215-4ade-8131-3368ad65eac3/image/f32e0bc2-11f4-4fa0-a440-435cccb06bb0.jpg",
     color: "from-emerald-500 to-lime-500",
     audio: "https://res.cloudinary.com/dxf0fmf9a/video/upload/v1751525132/Resilience_jf2dbk.mp3",
