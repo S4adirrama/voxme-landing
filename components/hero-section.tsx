@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Play, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export default function HeroSection() {
   const [currentWord, setCurrentWord] = useState(0)
@@ -51,14 +52,16 @@ export default function HeroSection() {
             <span className="text-cyan-400 font-semibold">in two simple prompts.</span>
           </p>
 
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-lg px-8 py-5 h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300"
-          >
-            <Play className="h-5 w-5 mr-3" />
-            Create Magic Now
-            <ArrowRight className="h-5 w-5 ml-3" />
-          </Button>
+          <Link href="https://app.voxme.live" passHref>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-lg px-8 py-5 h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300"
+            >
+              <Play className="h-5 w-5 mr-3" />
+              Create Magic Now
+              <ArrowRight className="h-5 w-5 ml-3" />
+            </Button>
+          </Link>
         </div>
 
         {/* Video Right */}
@@ -71,7 +74,10 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
             poster="/placeholder.svg?height=400&width=600"
           >
-            <source src="/demo-video.mp4" type="video/mp4" />
+            <source
+              src="https://res.cloudinary.com/dxf0fmf9a/video/upload/v1752136418/%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2025-07-10_13-26-47_wehuld.webm"
+              type="video/webm"
+            />
           </video>
 
           {/* Overlay */}

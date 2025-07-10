@@ -46,9 +46,11 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <Button className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-sm px-7 py-2.5 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transform hover:scale-105 transition-all duration-300">
-            Try Free
-          </Button>
+          <Link href="https://app.voxme.live" passHref>
+            <Button className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-sm px-7 py-2.5 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transform hover:scale-105 transition-all duration-300">
+              Try Free
+            </Button>
+          </Link>
         </div>
       </div>
     </header>

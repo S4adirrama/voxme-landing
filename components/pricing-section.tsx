@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Check, Star } from "lucide-react"
+import Link from "next/link"
 
 export default function PricingSection() {
   return (
@@ -32,9 +33,11 @@ export default function PricingSection() {
                 </li>
               </ul>
 
-              <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold text-base py-3.5 rounded-2xl transition-all duration-300">
-                Start Free
-              </Button>
+             <Link href="https://app.voxme.live" passHref>
+  <Button className="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold text-base py-3.5 rounded-2xl transition-all duration-300">
+    Start Free
+  </Button>
+</Link>
             </div>
 
             {/* Paid */}
@@ -69,9 +72,11 @@ export default function PricingSection() {
                 </li>
               </ul>
 
-              <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base py-3.5 rounded-2xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300">
-                Get Started
-              </Button>
+              <Link href="https://app.voxme.live" passHref>
+  <Button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-base py-3.5 rounded-2xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-300">
+    Get Started
+  </Button>
+</Link>
             </div>
           </div>
 
