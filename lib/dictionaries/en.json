@@ -1,0 +1,106 @@
+{
+  "header": {
+    "logoText": "Voxme.live",
+    "demo": "Demo",
+    "examples": "Examples",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "tryFree": "Try Free"
+  },
+  "heroSection": {
+    "badge": "Revolutionary AI Music Platform",
+    "create": "Create",
+    "ai": "AI",
+    "inMinutes": "in Minutes",
+    "words": ["Songs", "Beats", "Covers", "Videos"],
+    "subtitle": "Get complete songs with cover art and music videos in two simple prompts.",
+    "cta": "Create Magic Now"
+  },
+  "demoSection": {
+    "badge": "See It In Action",
+    "watchAiCreate": "Watch AI Create",
+    "magic": "Magic",
+    "description": "See how our AI transforms simple text into music experiences",
+    "promptLabel": "Enter your prompt:",
+    "generating": "Generating...",
+    "generateWithAi": "Generate with AI",
+    "generationProgress": "Generation Progress",
+    "processing": "Processing...",
+    "liveDemo": "Live Demo",
+    "songGenerated": "Song Generated",
+    "artCreated": "Art Created",
+    "videoReady": "Video Ready",
+    "avgTime": "Avg. Time",
+    "successRate": "Success Rate",
+    "outputs": "Outputs",
+    "promptExamples": [
+      "Happy birthday song for Emma with jazz style",
+      "Relaxing lo-fi beats for studying",
+      "Epic rock anthem with guitar solos",
+      "Romantic ballad with piano and strings"
+    ],
+    "generationSteps": {
+      "aiProcessing": "AI Processing",
+      "creatingMusic": "Creating Music",
+      "generatingArt": "Generating Art",
+      "buildingVideo": "Building Video"
+    }
+  },
+  "examplesShowcase": {
+    "musicGallery": "Music Gallery",
+    "allGenres": "All Genres",
+    "musicStyles": [
+      "POP",
+      "ROCK",
+      "HIP-HOP",
+      "JAZZ",
+      "ELECTRONIC",
+      "CLASSICAL",
+      "COUNTRY",
+      "R&B",
+      "REGGAE",
+      "BLUES",
+      "FOLK",
+      "METAL"
+    ]
+  },
+  "pricingSection": {
+    "simplePricing": "Simple pricing",
+    "startFreeUpgrade": "Start free, upgrade when ready",
+    "freeTrial": "Free Trial",
+    "priceFree": "$0",
+    "freeFeatures": ["unlimited songs", "20 Cover art", "No credit card"],
+    "startFreeCta": "Start Free",
+    "mostPopular": "Most Popular",
+    "creator": "Creator",
+    "pricePerMonth": "/month",
+    "creatorFeatures": ["unlimited songs/month", "Unlimited cover art", "40 Music videos", "Commercial rights"],
+    "getStartedCta": "Get Started",
+    "moneyBackGuarantee": "30-day money-back guarantee"
+  },
+  "faqSection": {
+    "commonQuestions": "Common Questions",
+    "faqs": [
+      {
+        "question": "Do I need musical experience?",
+        "answer": "Not at all! Just type what you want in plain English, like 'happy birthday song' or 'relaxing piano music.' Our AI handles everything else."
+      },
+      {
+        "question": "How long does it take?",
+        "answer": "Most songs are ready in 1–3 minutes. You'll get a complete song with cover art instantly."
+      },
+      {
+        "question": "Can I use the music commercially?",
+        "answer": "Yes! Creator plan includes full commercial rights for YouTube, social media, client projects, and more."
+      },
+      {
+        "question": "What if I don't like the result?",
+        "answer": "You can generate unlimited variations by tweaking your prompt or asking for different styles."
+      },
+      {
+        "question": "When is voice cloning available?",
+        "answer": "Voice cloning is coming soon! You'll be able to upload any voice and have AI sing your songs in that voice."
+      }
+    ]
+  }
+}

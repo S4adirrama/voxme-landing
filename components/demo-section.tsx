@@ -1,23 +1,36 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Play, Sparkles, Music, ImageIcon, Video, Zap, Clock, CheckCircle } from "lucide-react"
+import { Sparkles, Music, ImageIcon, Video, Zap, Clock, CheckCircle } from "lucide-react"
 
-const generationSteps = [
-  { icon: Sparkles, label: "AI Processing", color: "text-cyan-400", duration: 2000 },
-  { icon: Music, label: "Creating Music", color: "text-blue-400", duration: 3000 },
-  { icon: ImageIcon, label: "Generating Art", color: "text-purple-400", duration: 1500 },
-  { icon: Video, label: "Building Video", color: "text-pink-400", duration: 2500 },
-]
+// Update the dictionary prop type to reflect the demoSection structure
+interface DemoSectionDictionary {
+  badge: string
+  watchAiCreate: string
+  magic: string
+  description: string
+  promptLabel: string
+  generating: string
+  generateWithAi: string
+  generationProgress: string
+  processing: string
+  liveDemo: string
+  songGenerated: string
+  artCreated: string
+  videoReady: string
+  avgTime: string
+  successRate: string
+  outputs: string
+  promptExamples: string[]
+  generationSteps: {
+    aiProcessing: string
+    creatingMusic: string
+    generatingArt: string
+    buildingVideo: string
+  }
+}
 
-const promptExamples = [
-  "Happy birthday song for Emma with jazz style",
-  "Relaxing lo-fi beats for studying",
-  "Epic rock anthem with guitar solos",
-  "Romantic ballad with piano and strings",
-]
-
-export default function DemoSection() {
+export default function DemoSection({ dictionary }: { dictionary: DemoSectionDictionary }) {
   const [currentStep, setCurrentStep] = useState(0)
   const [isGenerating, setIsGenerating] = useState(false)
   const [currentPrompt, setCurrentPrompt] = useState(0)
@@ -25,21 +38,28 @@ export default function DemoSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentPrompt((prev) => (prev + 1) % promptExamples.length)
+      setCurrentPrompt((prev) => (prev + 1) % dictionary.promptExamples.length)
     }, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [dictionary.promptExamples])
 
   const startGeneration = () => {
     setIsGenerating(true)
     setCurrentStep(0)
     setProgress(0)
 
-    generationSteps.forEach((step, index) => {
+    const generationStepsData = [
+      { icon: Sparkles, label: dictionary.generationSteps.aiProcessing, color: "text-cyan-400", duration: 2000 },
+      { icon: Music, label: dictionary.generationSteps.creatingMusic, color: "text-blue-400", duration: 3000 },
+      { icon: ImageIcon, label: dictionary.generationSteps.generatingArt, color: "text-purple-400", duration: 1500 },
+      { icon: Video, label: dictionary.generationSteps.buildingVideo, color: "text-pink-400", duration: 2500 },
+    ]
+
+    generationStepsData.forEach((step, index) => {
       setTimeout(() => {
         setCurrentStep(index)
-        const stepProgress = ((index + 1) / generationSteps.length) * 100
-        let currentProgress = (index / generationSteps.length) * 100
+        const stepProgress = ((index + 1) / generationStepsData.length) * 100
+        let currentProgress = (index / generationStepsData.length) * 100
         const progressInterval = setInterval(() => {
           currentProgress += 2
           setProgress(Math.min(currentProgress, stepProgress))
@@ -48,15 +68,25 @@ export default function DemoSection() {
       }, index * 1000)
     })
 
-    setTimeout(() => {
-      setIsGenerating(false)
-      setProgress(100)
-      setTimeout(() => {
-        setProgress(0)
-        setCurrentStep(0)
-      }, 2000)
-    }, generationSteps.length * 1000 + 1000)
+    setTimeout(
+      () => {
+        setIsGenerating(false)
+        setProgress(100)
+        setTimeout(() => {
+          setProgress(0)
+          setCurrentStep(0)
+        }, 2000)
+      },
+      generationStepsData.length * 1000 + 1000,
+    )
   }
+
+  const generationStepsDisplay = [
+    { icon: Sparkles, label: dictionary.generationSteps.aiProcessing, color: "text-cyan-400" },
+    { icon: Music, label: dictionary.generationSteps.creatingMusic, color: "text-blue-400" },
+    { icon: ImageIcon, label: dictionary.generationSteps.generatingArt, color: "text-purple-400" },
+    { icon: Video, label: dictionary.generationSteps.buildingVideo, color: "text-pink-400" },
+  ]
 
   return (
     <section id="demo" className="py-32 relative overflow-hidden">
@@ -72,24 +102,24 @@ export default function DemoSection() {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 backdrop-blur-xl border border-cyan-500/20 rounded-full px-8 py-4 mb-6">
             <Sparkles className="h-5 w-5 text-cyan-400" />
-            <span className="text-lg font-semibold text-cyan-300">See It In Action</span>
+            <span className="text-lg font-semibold text-cyan-300">{dictionary.badge}</span>
           </div>
           <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 tracking-tight">
-            Watch AI Create{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Magic</span>
+            {dictionary.watchAiCreate}{" "}
+            <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
+              {dictionary.magic}
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            See how our AI transforms simple text into music experiences
-          </p>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">{dictionary.description}</p>
         </div>
 
         {/* Центрированный интерактивный блок */}
         <div className="mx-auto bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/20 shadow-2xl">
           <div className="mb-8">
-            <label className="block text-sm font-semibold text-gray-300 mb-3">Enter your prompt:</label>
+            <label className="block text-sm font-semibold text-gray-300 mb-3">{dictionary.promptLabel}</label>
             <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl p-4 border border-gray-600/30 min-h-[60px] flex items-center">
               <span className="text-white text-lg font-medium typing-animation">
-                {promptExamples[currentPrompt]}
+                {dictionary.promptExamples[currentPrompt]}
               </span>
               <div className="ml-2 w-0.5 h-6 bg-cyan-400 animate-pulse"></div>
             </div>
@@ -103,12 +133,12 @@ export default function DemoSection() {
             {isGenerating ? (
               <>
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                Generating...
+                {dictionary.generating}
               </>
             ) : (
               <>
                 <Zap className="h-5 w-5" />
-                Generate with AI
+                {dictionary.generateWithAi}
               </>
             )}
           </button>
@@ -116,7 +146,7 @@ export default function DemoSection() {
           {(isGenerating || progress > 0) && (
             <div className="mb-8">
               <div className="flex justify-between items-center mb-2">
-                <span className="text-sm font-medium text-gray-300">Generation Progress</span>
+                <span className="text-sm font-medium text-gray-300">{dictionary.generationProgress}</span>
                 <span className="text-sm font-bold text-cyan-400">{Math.round(progress)}%</span>
               </div>
               <div className="w-full bg-gray-700/50 rounded-full h-3 overflow-hidden">
@@ -129,7 +159,7 @@ export default function DemoSection() {
           )}
 
           <div className="space-y-4">
-            {generationSteps.map((step, index) => {
+            {generationStepsDisplay.map((step, index) => {
               const StepIcon = step.icon
               const isActive = isGenerating && currentStep === index
               const isCompleted = isGenerating && currentStep > index
@@ -142,19 +172,15 @@ export default function DemoSection() {
                     isActive
                       ? "bg-white/10 border-cyan-500/30 shadow-lg shadow-cyan-500/20"
                       : isCompleted
-                      ? "bg-green-500/10 border-green-500/30"
-                      : isUpcoming
-                      ? "bg-gray-800/30 border-gray-600/20"
-                      : "bg-gray-800/20 border-gray-700/20"
+                        ? "bg-green-500/10 border-green-500/30"
+                        : isUpcoming
+                          ? "bg-gray-800/30 border-gray-600/20"
+                          : "bg-gray-800/20 border-gray-700/20"
                   }`}
                 >
                   <div
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                      isActive
-                        ? "bg-cyan-500/20 animate-pulse"
-                        : isCompleted
-                        ? "bg-green-500/20"
-                        : "bg-gray-700/50"
+                      isActive ? "bg-cyan-500/20 animate-pulse" : isCompleted ? "bg-green-500/20" : "bg-gray-700/50"
                     }`}
                   >
                     {isCompleted ? (
@@ -186,7 +212,7 @@ export default function DemoSection() {
                             ></div>
                           ))}
                         </div>
-                        <span className="text-xs text-cyan-300">Processing...</span>
+                        <span className="text-xs text-cyan-300">{dictionary.processing}</span>
                       </div>
                     )}
                   </div>
