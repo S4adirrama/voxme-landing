@@ -4,12 +4,10 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Play, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { Sparkles } from "lucide-react"
 import React from "react"
 
-// Update the dictionary prop type to reflect the heroSection structure
+// Update the dictionary prop type to reflect the heroSection structure without badge
 interface HeroSectionDictionary {
-  badge: string
   create: string
   ai: string
   inMinutes: string
@@ -48,14 +46,6 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
       <div className="relative z-10 container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Text Left */}
         <div className="text-left">
-          <div className="mb-12">
-            <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-2xl border-2 border-cyan-500/40 rounded-full px-8 py-4 mb-8 shadow-2xl shadow-cyan-500/30">
-              <Sparkles className="h-6 w-6 text-cyan-300 animate-pulse" />
-              <span className="text-lg font-bold text-white tracking-wide">{dictionary.badge}</span>
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-            </div>
-          </div>
-
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tighter">
             <div className="mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
               {dictionary.create}

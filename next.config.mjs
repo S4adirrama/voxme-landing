@@ -9,9 +9,14 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  i18n: {
-    locales: ['en', 'ru'],
-    defaultLocale: 'en',
+  // Ensure proper handling of static files and API routes
+  async rewrites() {
+    return [
+      {
+        source: "/_vercel/:path*",
+        destination: "/_vercel/:path*",
+      },
+    ]
   },
 }
 

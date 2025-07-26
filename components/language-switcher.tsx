@@ -2,27 +2,38 @@
 
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Globe } from "lucide-react"
 
 export default function LanguageSwitcher({ currentLang }: { currentLang: string }) {
   const router = useRouter()
   const pathname = usePathname()
 
   const switchLanguage = (newLang: string) => {
-    const newPath = pathname.replace(`/${currentLang}`, `/${newLang}`)
-    router.push(newPath)
+    if (newLang === "en") {
+      // For English, go to root
+      router.push("/")
+    } else {
+      // For other languages, use the locale prefix
+      router.push(`/${newLang}`)
+    }
   }
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex space-x-2">
       <Button
-        variant="ghost"
-        size="sm"
-        onClick={() => switchLanguage(currentLang === "en" ? "ru" : "en")}
-        className="text-gray-300 hover:text-white"
+        onClick={() => switchLanguage("en")}
+        className={`px-4 py-2 rounded-md text-sm font-bold ${
+          currentLang === "en" ? "bg-cyan-600 text-white" : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+        }`}
       >
-        <Globe className="h-4 w-4 mr-2" />
-        {currentLang === "en" ? "Русский" : "English"}
+        EN
+      </Button>
+      <Button
+        onClick={() => switchLanguage("ru")}
+        className={`px-4 py-2 rounded-md text-sm font-bold ${
+          currentLang === "ru" ? "bg-cyan-600 text-white" : "bg-gray-700 text-gray-300 hover:bg-gray-600"
+        }`}
+      >
+        RU
       </Button>
     </div>
   )

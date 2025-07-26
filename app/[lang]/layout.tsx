@@ -1,22 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import "../globals.css" // Corrected path
+import "../globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/next"
-import { getDictionary } from "@/lib/dictionaries" // New import
-import { Suspense } from "react" // Corrected import
+import { getDictionary } from "@/lib/dictionaries"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
-// Dynamic metadata based on fetched dictionary
+// Generate metadata based on the dictionary
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const dictionary = await getDictionary(params.lang)
 
   return {
-    title: dictionary.metadata.title,
-    description: dictionary.metadata.description,
-    keywords: dictionary.metadata.keywords,
+    title: `${dictionary.heroSection.badge} - Voxme.live`,
+    description: dictionary.heroSection.subtitle,
+    keywords: "AI music generator, voice cloning, AI cover art, music video AI, generate songs with AI",
     authors: [{ name: "Voxme.live" }],
     creator: "Voxme.live",
     publisher: "Voxme.live",
@@ -25,29 +25,26 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       type: "website",
       locale: params.lang === "en" ? "en_US" : params.lang === "ru" ? "ru_RU" : "en_US",
       url: "https://voxme.live",
-      title: dictionary.metadata.title,
-      description: dictionary.metadata.description,
+      title: `${dictionary.heroSection.badge} - Voxme.live`,
+      description: dictionary.heroSection.subtitle,
       siteName: "Voxme.live",
     },
     twitter: {
       card: "summary_large_image",
-      title: dictionary.metadata.title,
-      description: dictionary.metadata.description,
+      title: `${dictionary.heroSection.badge} - Voxme.live`,
+      description: dictionary.heroSection.subtitle,
       creator: "@voxmelive",
     },
   }
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
   params: { lang },
 }: {
   children: React.ReactNode
   params: { lang: string }
 }) {
-  // No need to fetch dictionary here if it's only passed to children via page.tsx
-  // The metadata is already handled by generateMetadata above.
-
   return (
     <html lang={lang} suppressHydrationWarning>
       <body className={inter.className}>
