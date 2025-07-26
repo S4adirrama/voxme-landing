@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Play, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import React from "react"
 
 // Update the dictionary prop type to reflect the heroSection structure without badge
 interface HeroSectionDictionary {
@@ -16,7 +15,7 @@ interface HeroSectionDictionary {
   cta: string
 }
 
-export default function HeroSection({ dictionary }: { dictionary: HeroSectionDictionary }) {
+export default function HeroSection({ dictionary, lang }: { dictionary: HeroSectionDictionary; lang?: string }) {
   const [currentWord, setCurrentWord] = useState(0)
   const words = dictionary.words // Use words from dictionary
 
@@ -26,6 +25,31 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
     }, 2000)
     return () => clearInterval(interval)
   }, [words]) // Depend on words to re-run if language changes
+
+  // Function to render subtitle with highlighted text
+  const renderSubtitle = () => {
+    if (lang === "ru") {
+      // For Russian: highlight "за два простых запроса"
+      const parts = dictionary.subtitle.split("за два простых запроса")
+      return (
+        <>
+          {parts[0]}
+          <span className="text-cyan-400 font-semibold">за два простых запроса</span>
+          {parts[1]}
+        </>
+      )
+    } else {
+      // For English: highlight "in two simple prompts"
+      const parts = dictionary.subtitle.split("in two simple prompts")
+      return (
+        <>
+          {parts[0]}
+          <span className="text-cyan-400 font-semibold">in two simple prompts</span>
+          {parts[1]}
+        </>
+      )
+    }
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-black px-4 sm:px-6 pt-24 sm:pt-32">
@@ -59,12 +83,7 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
           </h1>
 
           <p className="text-base sm:text-lg md:text-xl text-gray-300 mt-6 sm:mt-8 mb-8 sm:mb-12 max-w-xl font-light leading-relaxed">
-            {dictionary.subtitle.split("in two simple prompts.").map((part: string, index: number) => (
-              <React.Fragment key={index}>
-                {part}
-                {index === 0 && <span className="text-cyan-400 font-semibold">in two simple prompts.</span>}
-              </React.Fragment>
-            ))}
+            {renderSubtitle()}
           </p>
 
           <Link href="https://app.voxme.live" passHref>
