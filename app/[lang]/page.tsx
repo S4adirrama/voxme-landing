@@ -17,7 +17,7 @@ export default async function VoxmeLandingPage({
     <div className="min-h-screen bg-gray-900 text-white">
       <Header dictionary={dictionary.header} lang={lang} />
       <main>
-        <HeroSection dictionary={dictionary.heroSection} lang={lang} />
+        <HeroSection dictionary={dictionary.heroSection} />
         <DemoSection dictionary={dictionary.demoSection} />
         <ExamplesShowcase dictionary={dictionary.examplesShowcase} />
         <PricingSection dictionary={dictionary.pricingSection} />
