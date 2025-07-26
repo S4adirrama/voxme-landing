@@ -28,7 +28,7 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
   }, [words]) // Depend on words to re-run if language changes
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-black px-6 pt-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-slate-900 to-black px-4 sm:px-6 pt-24 sm:pt-32">
       {/* Background Orbs */}
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -43,14 +43,14 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Text Left */}
         <div className="text-left">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tighter">
-            <div className="mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tighter">
+            <div className="mb-3 sm:mb-4 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
               {dictionary.create}
             </div>
-            <div className="mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
+            <div className="mb-3 sm:mb-4 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">
               {dictionary.ai} {words[currentWord]}
             </div>
             <div className="bg-gradient-to-r from-gray-300 via-gray-400 to-gray-500 bg-clip-text text-transparent">
@@ -58,7 +58,7 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
             </div>
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 mt-8 mb-12 max-w-xl font-light">
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 mt-6 sm:mt-8 mb-8 sm:mb-12 max-w-xl font-light leading-relaxed">
             {dictionary.subtitle.split("in two simple prompts.").map((part: string, index: number) => (
               <React.Fragment key={index}>
                 {part}
@@ -70,17 +70,17 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
           <Link href="https://app.voxme.live" passHref>
             <Button
               size="lg"
-              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-lg px-8 py-5 h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-600 hover:from-cyan-400 hover:via-blue-500 hover:to-purple-500 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-5 h-auto rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
             >
-              <Play className="h-5 w-5 mr-3" />
+              <Play className="h-4 w-4 sm:h-5 sm:w-5 mr-2 sm:mr-3" />
               {dictionary.cta}
-              <ArrowRight className="h-5 w-5 ml-3" />
+              <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 ml-2 sm:ml-3" />
             </Button>
           </Link>
         </div>
 
         {/* Video Right */}
-        <div className="relative group w-full aspect-[4/3] min-h-[240px] sm:aspect-video rounded-3xl overflow-hidden border border-white/10 backdrop-blur-xl shadow-2xl">
+        <div className="relative group w-full aspect-[4/3] sm:aspect-video rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 backdrop-blur-xl shadow-2xl mt-8 lg:mt-0">
           <video
             autoPlay
             muted
@@ -97,7 +97,7 @@ export default function HeroSection({ dictionary }: { dictionary: HeroSectionDic
 
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-purple-500/20 rounded-2xl sm:rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         </div>
       </div>
     </section>
