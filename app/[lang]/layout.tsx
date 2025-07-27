@@ -13,10 +13,20 @@ const inter = Inter({ subsets: ["latin"] })
 export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
   const dictionary = await getDictionary(params.lang)
 
+  const title =
+    params.lang === "en"
+      ? "Voxme.live - Create AI Music | No Experience Needed"
+      : "Voxme.live - AI Генератор Музыки | Создание Музыки с ИИ"
+
+  const description = dictionary.heroSection.subtitle
+
   return {
-    title: `${dictionary.heroSection.badge} - Voxme.live`,
-    description: dictionary.heroSection.subtitle,
-    keywords: "AI music generator, voice cloning, AI cover art, music video AI, generate songs with AI",
+    title,
+    description,
+    keywords:
+      params.lang === "en"
+        ? "AI music generator, voice cloning, AI cover art, music video AI, generate songs with AI"
+        : "AI генератор музыки, клонирование голоса, AI обложки, музыкальное видео AI, создание песен с AI",
     authors: [{ name: "Voxme.live" }],
     creator: "Voxme.live",
     publisher: "Voxme.live",
@@ -25,14 +35,14 @@ export async function generateMetadata({ params }: { params: { lang: string } })
       type: "website",
       locale: params.lang === "en" ? "en_US" : params.lang === "ru" ? "ru_RU" : "en_US",
       url: "https://voxme.live",
-      title: `${dictionary.heroSection.badge} - Voxme.live`,
-      description: dictionary.heroSection.subtitle,
+      title,
+      description,
       siteName: "Voxme.live",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${dictionary.heroSection.badge} - Voxme.live`,
-      description: dictionary.heroSection.subtitle,
+      title,
+      description,
       creator: "@voxmelive",
     },
   }

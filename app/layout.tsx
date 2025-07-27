@@ -9,7 +9,7 @@ import { Suspense } from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Voxme.live - AI Music Generator",
+  title: "Voxme.live - Create AI Music | No Experience Needed",
   description: "Create AI-generated songs, cover art, and music videos with advanced voice cloning technology.",
   keywords: "AI music generator, voice cloning, AI cover art, music video AI",
     generator: 'v0.dev'
