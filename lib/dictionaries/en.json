@@ -72,6 +72,7 @@
     "startFreeCta": "Start Free",
     "mostPopular": "Most Popular",
     "creator": "Creator",
+    "price": "$19",
     "pricePerMonth": "/month",
     "creatorFeatures": ["Unlimited songs", "Unlimited cover art", "10 music videos per month", "Commercial rights"],
     "getStartedCta": "Get Started",

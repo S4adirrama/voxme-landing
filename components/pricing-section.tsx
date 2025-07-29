@@ -14,6 +14,7 @@ interface PricingSectionDictionary {
   startFreeCta: string
   mostPopular: string
   creator: string
+  price: string
   pricePerMonth: string
   creatorFeatures: string[]
   getStartedCta: string
@@ -60,7 +61,7 @@ export default function PricingSection({ dictionary }: { dictionary: PricingSect
               </div>
 
               <h3 className="text-2xl font-black text-white mb-5">{dictionary.creator}</h3>
-              <div className="text-5xl font-black text-white mb-2">$19</div>
+              <div className="text-5xl font-black text-white mb-2">{dictionary.price}</div>
               <div className="text-gray-400 mb-7 text-lg">{dictionary.pricePerMonth}</div>
 
               <ul className="space-y-4 mb-9 text-left">
